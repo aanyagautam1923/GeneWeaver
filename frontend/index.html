@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GeneWeaver - Intelligent CRISPR DNA Sequence Analysis Platform">
+    <title>GeneWeaver | DNA Analysis Platform</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">🧬</div>
+            <div>
+                <h2>GeneWeaver</h2>
+                <span>GENOMIC INTELLIGENCE</span>
+            </div>
+        </div>
+
+        <div class="sidebar-label">WORKSPACE</div>
+
+        <nav class="sidebar-nav">
+            <a href="#dashboard" class="nav-link active">▦ Dashboard</a>
+            <a href="#sequence-analysis" class="nav-link">⌘ Sequence Analysis</a>
+            <a href="#alignment" class="nav-link">⇄ DNA Alignment</a>
+            <a href="#pam-detection" class="nav-link">◎ PAM Detection</a>
+            <a href="#sequence-tools" class="nav-link">⌬ Sequence Tools</a>
+            <a href="#history" class="nav-link">◷ Analysis History</a>
+        </nav>
+
+        <div class="sidebar-label">SYSTEM</div>
+
+        <nav class="sidebar-nav">
+            <a href="#performance" class="nav-link">▤ Performance</a>
+            <a href="#settings" class="nav-link">⚙ Settings</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="system-status">
+                <span class="status-dot"></span>
+                <div>
+                    <strong>System Online</strong>
+                    <small>GeneWeaver v1.0</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="topbar">
+            <div>
+                <div class="breadcrumb">Workspace / Dashboard</div>
+                <h1>Research Dashboard</h1>
+            </div>
+
+            <div class="topbar-right">
+                <span class="backend-status" id="backendStatus">
+                    <span class="status-dot"></span>
+                    Checking Backend...
+                </span>
+                <div class="user-avatar">GW</div>
+            </div>
+        </header>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="page-section">
+
+            <div class="welcome-section">
+                <div>
+                    <p class="eyebrow">GENOMIC RESEARCH PLATFORM</p>
+                    <h2>Welcome to <span>GeneWeaver</span></h2>
+                    <p>Analyze DNA sequences, detect potential CRISPR off-target sites and explore alignment results.</p>
+                </div>
+
+                <div class="welcome-icon">🧬</div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-label">ANALYSES COMPLETED</span>
+                    <h2 id="analysisCount">--</h2>
+                    <p>Analysis sessions</p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">PROCESSING MODE</span>
+                    <h2 id="processingMode">--</h2>
+                    <p>Current execution mode</p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">ALIGNMENT ENGINE</span>
+                    <h2 id="alignmentEngine">Ready</h2>
+                    <p>Needleman-Wunsch</p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">BACKEND STATUS</span>
+                    <h2 id="backendHealth">Checking</h2>
+                    <p>API connectivity</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Sequence Analysis -->
+        <section id="sequence-analysis" class="content-card page-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">DNA WORKSPACE</p>
+                    <h2>Sequence Analysis</h2>
+                    <p>Enter or upload a DNA sequence for analysis.</p>
+                </div>
+            </div>
+
+            <label for="dnaSequence">DNA Sequence</label>
+
+            <textarea
+                id="dnaSequence"
+                placeholder="Enter DNA sequence (A, T, G, C, N)..."
+                rows="7"
+            ></textarea>
+
+            <div class="input-footer">
+                <span id="sequenceLength">0 nucleotides</span>
+                <button class="primary-btn" id="analyzeBtn">
+                    Analyze Sequence →
+                </button>
+            </div>
+
+            <div id="analysisResults" class="results-container">
+                <p>Analysis results will appear here.</p>
+            </div>
+        </section>
+
+        <!-- Alignment -->
+        <section id="alignment" class="content-card page-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">SEQUENCE COMPARISON</p>
+                    <h2>DNA Alignment</h2>
+                    <p>Compare two DNA sequences using global alignment.</p>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <label for="sequenceA">Sequence A</label>
+                    <textarea id="sequenceA" rows="4" placeholder="Enter first DNA sequence"></textarea>
+                </div>
+
+                <div>
+                    <label for="sequenceB">Sequence B</label>
+                    <textarea id="sequenceB" rows="4" placeholder="Enter second DNA sequence"></textarea>
+                </div>
+            </div>
+
+            <button class="primary-btn" id="alignBtn">Run Alignment →</button>
+
+            <div id="alignmentResults" class="results-container">
+                <p>Alignment results will appear here.</p>
+            </div>
+        </section>
+
+        <!-- PAM Detection -->
+        <section id="pam-detection" class="content-card page-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CRISPR ANALYSIS</p>
+                    <h2>PAM Detection</h2>
+                    <p>Identify potential SpCas9 NGG PAM sites.</p>
+                </div>
+            </div>
+
+            <label for="pamSequence">Target DNA Sequence</label>
+            <textarea id="pamSequence" rows="5" placeholder="Enter DNA sequence..."></textarea>
+
+            <button class="primary-btn" id="pamBtn">Detect PAM Sites →</button>
+
+            <div id="pamResults" class="results-container">
+                <p>PAM detection results will appear here.</p>
+            </div>
+        </section>
+
+        <!-- Sequence Tools -->
+        <section id="sequence-tools" class="content-card page-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">BIOINFORMATICS TOOLS</p>
+                    <h2>Sequence Tools</h2>
+                    <p>Additional DNA sequence utilities.</p>
+                </div>
+            </div>
+
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h3>GC Content</h3>
+                    <p>Calculate guanine and cytosine percentage.</p>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Melting Temperature</h3>
+                    <p>Estimate DNA melting temperature.</p>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Reverse Complement</h3>
+                    <p>Generate reverse complementary DNA sequence.</p>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Multi-FASTA</h3>
+                    <p>Process multiple FASTA records.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- History -->
+        <section id="history" class="content-card page-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">PREVIOUS WORK</p>
+                    <h2>Analysis History</h2>
+                    <p>Review previous analysis sessions.</p>
+                </div>
+            </div>
+
+            <div id="historyResults" class="results-container">
+                <p>History module will be connected to the backend.</p>
+            </div>
+        </section>
+
+        <!-- Performance -->
+        <section id="performance" class="content-card page-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">ENGINE MONITORING</p>
+                    <h2>System Performance</h2>
+                    <p>Monitor the current processing environment.</p>
+                </div>
+            </div>
+
+            <div class="performance-grid">
+                <div class="tool-card">
+                    <span>Processing Mode</span>
+                    <h3 id="performanceMode">--</h3>
+                </div>
+
+                <div class="tool-card">
+                    <span>GPU Availability</span>
+                    <h3 id="gpuStatus">Checking</h3>
+                </div>
+
+                <div class="tool-card">
+                    <span>API Connection</span>
+                    <h3 id="apiStatus">Checking</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings -->
+        <section id="settings" class="content-card page-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CONFIGURATION</p>
+                    <h2>Settings</h2>
+                    <p>GeneWeaver application information.</p>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <p><strong>Application:</strong> GeneWeaver</p>
+                <p><strong>Version:</strong> 1.0.0</p>
+                <p><strong>Alignment:</strong> Needleman-Wunsch</p>
+                <p><strong>Default PAM:</strong> NGG</p>
+                <p><strong>Backend:</strong> FastAPI (planned integration)</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>GeneWeaver © 2026 | Computational research and educational platform.</p>
+            <p>Off-target predictions require independent experimental validation.</p>
+        </footer>
+
+    </main>
+</div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
