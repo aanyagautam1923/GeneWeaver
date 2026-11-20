@@ -1,0 +1,46 @@
+{
+    "project": "GeneWeaver",
+    "benchmark": "CPU vs CUDA Alignment",
+    "repeats": 3,
+    "system_processing_mode": "CPU",
+    "gpu_info": {
+        "available": false,
+        "device_name": null,
+        "compute_capability": null,
+        "message": "CUDA detection failed: Failure finding \"known cudart DLL\": No such file: known cudart DLL, No such file: known cudart DLL\n",
+        "total_memory_mb": null,
+        "free_memory_mb": null
+    },
+    "average_cpu_time_ms": 0.3534,
+    "average_accelerated_time_ms": 301.9967,
+    "results": [
+        {
+            "sequence_length": 20,
+            "cpu_score": 37,
+            "accelerated_score": 37,
+            "scores_match": true,
+            "cpu_time_ms": 0.3542,
+            "accelerated_time_ms": 836.1455,
+            "processing_mode": "CPU"
+        },
+        {
+            "sequence_length": 14,
+            "cpu_score": 25,
+            "accelerated_score": 25,
+            "scores_match": true,
+            "cpu_time_ms": 0.3441,
+            "accelerated_time_ms": 38.5519,
+            "processing_mode": "CPU"
+        },
+        {
+            "sequence_length": 16,
+            "cpu_score": 29,
+            "accelerated_score": 29,
+            "scores_match": true,
+            "cpu_time_ms": 0.362,
+            "accelerated_time_ms": 31.2927,
+            "processing_mode": "CPU"
+        }
+    ],
+    "all_scores_match": true
+}
