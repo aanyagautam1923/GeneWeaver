@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+﻿from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
 from app.sequence_search import search_sequence
@@ -20,8 +20,8 @@ class SequenceSearchRequest(BaseModel):
 def search_dna(request: SequenceSearchRequest):
     try:
         results = search_sequence(
-            reference=request.reference,
-            query=request.query,
+            reference_sequence=request.reference,
+            query_sequence=request.query,
             max_mismatches=request.max_mismatches,
             both_strands=request.both_strands,
         )

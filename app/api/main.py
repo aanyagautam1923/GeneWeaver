@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes import router
+from app.api.search_routes import router as search_router
 from app.config import PROJECT_NAME, PROJECT_VERSION, create_required_directories
 
 
@@ -27,6 +28,7 @@ app.add_middleware(
 )
 
 app.include_router(router)
+app.include_router(search_router)
 
 
 @app.get("/")
@@ -40,3 +42,4 @@ def root():
         "documentation": "/docs",
         "health": "/health",
     }
+
