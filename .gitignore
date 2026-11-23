@@ -9,3 +9,12 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+
+# Local backups
+backup_*/
+*_backup_*/
+*.bak
+frontend_backup_*/
+
+# Generated results
+results/

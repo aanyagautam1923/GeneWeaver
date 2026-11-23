@@ -43,3 +43,9 @@ def root():
         "health": "/health",
     }
 
+
+
+# Week 2 API integration
+from app.api.week2_routes import router as week2_router
+app.include_router(week2_router)
+
